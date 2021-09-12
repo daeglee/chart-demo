@@ -1,4 +1,4 @@
-export const RawDataType = {
+export const ConstType = {
     CPU: {type: 0, title: "CPU Usage", YAxisDataKey: "cpuusage"},
     MEMORY: {type: 1, title: "Memory Usage", YAxisDataKey: "memoryUsage"}
 }
@@ -6,6 +6,9 @@ export const RawDataType = {
 export const ChartType = {
     AREA_CHART: {id: 0, dataSize: 20},
     PIE_CHART: {id: 1, dataSize: 1},
+    LINE_CHART: {id: 2, dataSize: 20},
+    BAR_CHART: {id: 3, dataSize: 10},
+    SCATTER_CHART: {id: 0, dataSize: 16},
 }
 
 export const DateType = Object.freeze({

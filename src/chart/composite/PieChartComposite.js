@@ -1,15 +1,7 @@
-// OS Resource
-// CPU와 Memory가 표시됨
-// 5초마다 값을 가져와서
-// 해당값으로 업데이트
-
-// PieChart는 Real Time만 지원?
-// 가장 최신값만 표시
-
 import React, {useEffect, useState} from 'react';
 import { PieChart, Pie, Cell} from 'recharts';
-import TypeToFunction from "../ChartTypeToFunction";
-import {ChartType, RawDataType} from "../rawDataType";
+import TypeToFunction from "../RawDataTypeToApiCall";
+import {ChartType, ConstType} from "../ConstType";
 import * as config from "../../config";
 
 const DEFAULT_COLOR = '#DDDDDD'; // for background color
@@ -60,15 +52,15 @@ function PieChartComposite({rawDataType}){
                         {rawDataType.title}
                     </h2>
                 </div>
-            <PieChart width={400} height={400}>
+            <PieChart width={config.GRAPH_WIDTH} height={config.GRAPH_HEIGHT}>
                 <Pie
                     data={data}
-                    cx={200}
-                    cy={200}
+                    cx={config.GRAPH_WIDTH / 2}
+                    cy={config.GRAPH_HEIGHT / 2}
                     labelLine={false}
                     label={renderCustomizedLabel}
-                    innerRadius={60}
-                    outerRadius={80}
+                    innerRadius={config.GRAPH_WIDTH / 5 - 20}
+                    outerRadius={config.GRAPH_WIDTH / 5}
                     fill="#8884d8"
                     dataKey="value"
                     isAnimationActive={false}

@@ -9,20 +9,15 @@ import {
     ResponsiveContainer
 } from "recharts";
 import {format, toDate} from "date-fns";
-import TypeToFunction from "../ChartTypeToFunction";
+import TypeToFunction from "../RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../rawDataType";
+import {ChartType} from "../ConstType";
 import TimeFormatter from "../TimeFormatter";
+import ChartToolTip from "../ChartToolTip";
 
 
 function AreaChartComposite({rawDataType, dateType}) {
-    /**TODO: props로 넘겨줘야할 것
-     1. RawDataType( type, title 등등)
-     2. initiate API ( 여기서는 getCPUUsage)
-     3. update함수
-     4. X축, y축 정보
-     */
     const typeInfo = ChartType.AREA_CHART;
     const [data, setData] = useState([]);
 
@@ -97,26 +92,12 @@ function AreaChartComposite({rawDataType, dateType}) {
                         tickFormatter={(number) => number}
                     />
 
-                    <Tooltip content={<CustomTooltip/>}/>
+                    <Tooltip content={<ChartToolTip/>}/>
                     <CartesianGrid opacity={0.1} vertical={false}/>
                 </AreaChart>
             </ResponsiveContainer>
         </>
     );
 }
-
-const CustomTooltip = ({active, payload, label}) => {
-    if (active) {
-        return (
-            //TODO: tooltip style
-            <div className="tooltip">
-                <p>{format(toDate(label * 1000), config.BASIC_TOOLTIP, config.CURRENT_LOCALE)}</p>
-                <p>{payload[0].value.toFixed(0)}%</p>
-            </div>
-        );
-    }
-
-    return null;
-};
 
 export default AreaChartComposite;

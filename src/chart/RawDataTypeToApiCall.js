@@ -1,5 +1,5 @@
 import {getCpuUsages, getMemoryUsages} from "../repository/ChartDataRepository";
-import {ChartType, RawDataType} from "./rawDataType";
+import {ChartType, ConstType} from "./ConstType";
 
 function TypeToFunction(dataType, type, afterThen){
     let dataSize = 20;
@@ -10,16 +10,22 @@ function TypeToFunction(dataType, type, afterThen){
         case ChartType.PIE_CHART:
             dataSize = 1;
             break;
+        case ChartType.LINE_CHART:
+            dataSize = 20;
+            break;
+        case ChartType.BAR_CHART:
+            dataSize = 10;
+            break;
         default:
             break;
     }
 
 
     switch (dataType){
-        case RawDataType.CPU.type:
+        case ConstType.CPU.type:
             getCpuUsages(dataSize).then(afterThen)
             break;
-        case RawDataType.MEMORY.type:
+        case ConstType.MEMORY.type:
             getMemoryUsages(dataSize).then(afterThen)
             break;
         default:
