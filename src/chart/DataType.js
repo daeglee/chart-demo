@@ -1,6 +1,7 @@
-export const ConstType = {
-    CPU: {type: 0, title: "CPU Usage", YAxisDataKey: "cpuusage"},
-    MEMORY: {type: 1, title: "Memory Usage", YAxisDataKey: "memoryUsage"}
+//RawDataType
+export const DataType = {
+    CPU: {type: 0, title: "CPU Usage", YAxisDataKey: "cpuusage", controllerAddress: "cpu"},
+    MEMORY: {type: 1, title: "Memory Usage", YAxisDataKey: "memoryUsage", controllerAddress: "memory"}
 }
 
 export const ChartType = {
@@ -11,13 +12,15 @@ export const ChartType = {
     SCATTER_CHART: {id: 0, dataSize: 16},
 }
 
-export const DateType = Object.freeze({
-    REAL_TIME: Symbol(0),
-    MINUTE: Symbol(1),
-    HOUR: Symbol(2),
-    DAY: Symbol(3),
-    MONTH: Symbol(4),
-});
+// 소문자로 데이터를 전달하기위해
+// enum 타입이지만 소문자로 설정
+export const DateType = {
+    REAL_TIME: {name: "second", second: 1} ,
+    MINUTE: {name: "minute", second: 60},
+    HOUR: {name: "hour", second: 3600},
+    DAY: {name: "day", second: 86400},
+    MONTH: {name: "month", second: 1036800},
+};
 
 
 // TMI, 의식의 흐름

@@ -1,6 +1,6 @@
 import {format} from "date-fns";
-import {DateType} from "./ConstType";
-import * as config from "../config";
+import {DateType} from "../RawDataType";
+import * as config from "../../config";
 
 function TimeFormatter(date, dateType) {
     const interval = 5;

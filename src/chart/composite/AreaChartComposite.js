@@ -9,12 +9,13 @@ import {
     ResponsiveContainer
 } from "recharts";
 import {format, toDate} from "date-fns";
-import TypeToFunction from "../RawDataTypeToApiCall";
+import TypeToFunction from "../functions/RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../ConstType";
-import TimeFormatter from "../TimeFormatter";
-import ChartToolTip from "../ChartToolTip";
+import {ChartType} from "../RawDataType";
+import TimeFormatter from "../functions/TimeFormatter";
+import ChartToolTip from "../functions/ChartToolTip";
+import MockChartUpdate from "../functions/MockChartUpdate";
 
 
 function AreaChartComposite({rawDataType, dateType}) {
@@ -24,12 +25,7 @@ function AreaChartComposite({rawDataType, dateType}) {
     const UpdateInfo = useDataContext();
 
     useEffect(() => {
-        const afterThen = (x) => {
-            setData(x);
-        }
-        TypeToFunction(rawDataType.type, typeInfo,
-            afterThen
-        );
+        MockChartUpdate(typeInfo, rawDataType, dateType, data, setData);
     }, []);
 
 

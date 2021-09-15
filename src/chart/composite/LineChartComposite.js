@@ -8,12 +8,13 @@ import {
     ResponsiveContainer, Legend, Line
 } from "recharts";
 import {toDate} from "date-fns";
-import TypeToFunction from "../RawDataTypeToApiCall";
+import TypeToFunction from "../functions/RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../ConstType";
-import TimeFormatter from "../TimeFormatter";
-import ChartToolTip from "../ChartToolTip";
+import {ChartType} from "../RawDataType";
+import TimeFormatter from "../functions/TimeFormatter";
+import ChartToolTip from "../functions/ChartToolTip";
+import MockChartUpdate from "../functions/MockChartUpdate";
 
 
 function LineChartComposite({rawDataType, dateType}) {
@@ -23,13 +24,9 @@ function LineChartComposite({rawDataType, dateType}) {
     const UpdateInfo = useDataContext();
 
     useEffect(() => {
-        const afterThen = (x) => {
-            setData(x);
-        }
-        TypeToFunction(rawDataType.type, typeInfo,
-            afterThen
-        );
+        MockChartUpdate(typeInfo, rawDataType, dateType, data, setData);
     }, []);
+
 
 
     // 어떻게 해야할지 고민중

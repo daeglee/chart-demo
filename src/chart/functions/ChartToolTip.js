@@ -1,5 +1,5 @@
 import {format, toDate} from "date-fns";
-import * as config from "../config";
+import * as config from "../../config";
 import React from "react";
 
 const ChartToolTip = ({active, payload, label}) => {

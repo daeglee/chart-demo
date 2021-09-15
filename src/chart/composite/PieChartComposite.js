@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { PieChart, Pie, Cell} from 'recharts';
-import TypeToFunction from "../RawDataTypeToApiCall";
-import {ChartType, ConstType} from "../ConstType";
+import TypeToFunction from "../functions/RawDataTypeToApiCall";
+import {ChartType, DataType} from "../RawDataType";
 import * as config from "../../config";
 
 const DEFAULT_COLOR = '#DDDDDD'; // for background color

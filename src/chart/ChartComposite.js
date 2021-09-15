@@ -1,5 +1,5 @@
 import AreaChartComposite from "./composite/AreaChartComposite";
-import {ChartType, ConstType} from "./ConstType";
+import {ChartType, DataType} from "./RawDataType";
 import PieChartComposite from "./composite/PieChartComposite";
 import LineChartComposite from "./composite/LineChartComposite";
 import BarChartComposite from "./composite/BarChartComposite";

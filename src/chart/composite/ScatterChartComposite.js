@@ -6,12 +6,13 @@ import {
     Tooltip,
     XAxis, Legend, Scatter, ResponsiveContainer, ZAxis
 } from "recharts";
-import TypeToFunction from "../RawDataTypeToApiCall";
+import TypeToFunction from "../functions/RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../ConstType";
+import {ChartType} from "../RawDataType";
 import {toDate} from "date-fns";
-import TimeFormatter from "../TimeFormatter";
+import TimeFormatter from "../functions/TimeFormatter";
+import MockChartUpdate from "../functions/MockChartUpdate";
 
 
 function AreaChartComposite({rawDataType, dateType}) {
@@ -21,13 +22,9 @@ function AreaChartComposite({rawDataType, dateType}) {
     const UpdateInfo = useDataContext();
 
     useEffect(() => {
-        const afterThen = (x) => {
-            setData(x);
-        }
-        TypeToFunction(rawDataType.type, typeInfo,
-            afterThen
-        );
+        MockChartUpdate(typeInfo, rawDataType, dateType, data, setData);
     }, []);
+
 
 
 
