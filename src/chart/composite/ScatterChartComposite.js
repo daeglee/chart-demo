@@ -6,10 +6,9 @@ import {
     Tooltip,
     XAxis, Legend, Scatter, ResponsiveContainer, ZAxis
 } from "recharts";
-import TypeToFunction from "../functions/RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../RawDataType";
+import {ChartType} from "../DataType";
 import {toDate} from "date-fns";
 import TimeFormatter from "../functions/TimeFormatter";
 import MockChartUpdate from "../functions/MockChartUpdate";

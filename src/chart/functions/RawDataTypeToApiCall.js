@@ -1,5 +1,5 @@
 import {getCpuUsages, getMemoryUsages} from "../../repository/ChartDataRepository";
-import {ChartType, DataType} from "../RawDataType";
+import {ChartType, DataType} from "../DataType";
 
 function TypeToFunction(dataType, type, afterThen){
     let dataSize = 20;

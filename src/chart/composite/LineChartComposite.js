@@ -8,10 +8,9 @@ import {
     ResponsiveContainer, Legend, Line
 } from "recharts";
 import {toDate} from "date-fns";
-import TypeToFunction from "../functions/RawDataTypeToApiCall";
 import {useDataContext} from "../../context/ChartDataUpdateContextProvider";
 import * as config from "../../config";
-import {ChartType} from "../RawDataType";
+import {ChartType} from "../DataType";
 import TimeFormatter from "../functions/TimeFormatter";
 import ChartToolTip from "../functions/ChartToolTip";
 import MockChartUpdate from "../functions/MockChartUpdate";

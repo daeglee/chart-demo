@@ -2,7 +2,7 @@ import './App.css';
 import {useRef, useState} from "react";
 import ChartList from "./chart/ChartList";
 import {ChartDataUpdateContextProvider} from "./context/ChartDataUpdateContextProvider";
-import {ChartType, DateType, DataType} from "./chart/RawDataType";
+import {ChartType, DateType, DataType} from "./chart/DataType";
 
 function App() {
   const [charts, setCharts] = useState([
